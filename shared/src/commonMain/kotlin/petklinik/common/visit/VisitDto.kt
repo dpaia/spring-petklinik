@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 data class VisitDto(
     val visitDate: String,
     val description: String,
-    val id: Int?
+    val id: Int? = null
 )

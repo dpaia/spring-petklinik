@@ -4,5 +4,6 @@ fun main() {
     searchOwnerForm()
     editOwnerForm()
     addPetForm()
+    addVisitForm()
 }
 

@@ -74,11 +74,11 @@ fun renderOwnerDetail(owner: OwnerDto) = renderLayout(Menu.OWNERS) {
     }
 
     table(classes = "table table-striped") {
-        for(pet in owner.pets) {
+        for (pet in owner.pets) {
             tr {
                 td {
                     if (pet.imageId != null) {
-                        a(href="/pets/images/${pet.imageId}", target = "_blank") {
+                        a(href = "/pets/images/${pet.imageId}", target = "_blank") {
                             img(src = "/pets/images/${pet.imageId}") {
                                 width = "128px"
                                 height = "128px"
@@ -112,24 +112,19 @@ fun renderOwnerDetail(owner: OwnerDto) = renderLayout(Menu.OWNERS) {
                     table(classes = "table-condensed") {
                         thead {
                             tr {
-                                th {
-                                    +"Visit Date"
-                                }
-                                th {
-                                    +"Description"
-                                }
-                            }
-                            for (visit in pet.visits!!) {
-                                tr {
-                                    td {
-                                        +visit.visitDate
-                                    }
-                                    td {
-                                        +visit.description
-                                    }
-                                }
+                                th { +"Visit Date" }
+                                th { +"Description" }
                             }
                         }
+                        for (visit in pet.visits!!) {
+                            tr {
+                                td { +visit.visitDate }
+                                td { +visit.description }
+                            }
+                        }
+                    }
+                    a(href = "/owners/${owner.id}/pets/${pet.id}/visits/new") {
+                        +"Add Visit"
                     }
                 }
             }

@@ -10,6 +10,7 @@ import petklinik.backend.owner.ownerRouter
 import petklinik.backend.pet.PetManagement
 import petklinik.backend.pet.petRouter
 import petklinik.backend.vet.vetRouter
+import petklinik.backend.visit.VisitManagement
 
 class Beans : BeanRegistrarDsl({
     // PetManagement bean with a custom RestClient
@@ -25,6 +26,9 @@ class Beans : BeanRegistrarDsl({
     registerBean(::petRouter)
     registerBean(::vetRouter)
     registerBean(::ownerRouter)
+
+    // Visit management
+    registerBean<VisitManagement>()
 
     // Customization of Spring Boot configuration to use only specific HTTP converters
     registerBean {
