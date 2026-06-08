@@ -5,7 +5,9 @@
   "jvm_version": "17",
   "build_system": "gradle-kotlin",
   "expected": {
-    "fail_to_pass": [],
+    "fail_to_pass": [
+      "backend:ErrorHandlingTests"
+    ],
     "pass_to_pass": []
   },
   "environment": {
