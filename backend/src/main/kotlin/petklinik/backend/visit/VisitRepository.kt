@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional
 interface VisitRepository : Repository<Visit, Integer> {
 
     @Transactional
-    fun save(visit: Visit)
+    fun save(visit: Visit): Visit
 
     @Transactional(readOnly = true)
     @Query("select * from visit where pet_id = :petId")

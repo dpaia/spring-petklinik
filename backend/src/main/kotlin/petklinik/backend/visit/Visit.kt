@@ -10,7 +10,7 @@ data class Visit(
     val description: String,
     val petId: Int,
     @Id
-    val id: Int?
+    val id: Int? = null
 )
 
 fun Visit.toDto() = VisitDto(

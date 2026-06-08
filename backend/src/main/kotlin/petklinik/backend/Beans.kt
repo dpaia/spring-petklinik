@@ -11,6 +11,7 @@ import petklinik.backend.pet.petRouter
 import petklinik.backend.vet.SpecialtyRepository
 import petklinik.backend.vet.VetRepository
 import petklinik.backend.vet.vetRouter
+import petklinik.backend.visit.VisitManagement
 import petklinik.backend.visit.VisitRepository
 
 class Beans : BeanRegistrarDsl({
@@ -22,9 +23,20 @@ class Beans : BeanRegistrarDsl({
         PetManagement(bean<PetRepository>(), bean<PetImageRepository>(), bean<VisitRepository>(), builder)
     }
 
+    // Visit management
+    registerBean<VisitManagement>()
+
     // Routers
     registerBean { globalRouter() }
-    registerBean { petRouter(bean<OwnerRepository>(), bean<PetRepository>(), bean<VisitRepository>(), bean<PetManagement>()) }
+    registerBean {
+        petRouter(
+            bean<OwnerRepository>(),
+            bean<PetRepository>(),
+            bean<VisitRepository>(),
+            bean<PetManagement>(),
+            bean<VisitManagement>(),
+        )
+    }
     registerBean { vetRouter(bean<VetRepository>(), bean<SpecialtyRepository>()) }
     registerBean { ownerRouter(bean<OwnerRepository>(), bean<PetRepository>(), bean<VisitRepository>()) }
 
