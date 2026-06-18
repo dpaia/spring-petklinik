@@ -83,6 +83,9 @@ fun renderLayout(activeMenu: Menu, layoutContent: DIV.() -> Unit = {}) = createH
                             }
                         }
                         li {
+                            if (activeMenu == Menu.ERROR) {
+                                classes = setOf("active")
+                            }
                             a(href="/oups") {
                                 title = "trigger a RuntimeException to see how it is handled"
                                 span(classes ="glyphicon glyphicon-warning-sign")
